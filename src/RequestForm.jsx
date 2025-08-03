@@ -22,17 +22,24 @@ function RequestForm() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-2xl font-bold text-green-400 mb-4">
-          Request Submitted 🎉
-        </h1>
-        <p>Thank you! You’ll be added to the queue shortly.</p>
+      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 text-center">
+        <div className="animate-ping-once text-green-400 text-7xl mb-4">✅</div>
+        <h1 className="text-3xl font-bold mb-2">Thanks for your request!</h1>
+        <p className="text-lg text-zinc-300 mb-6">
+          You’ll be added to the queue shortly.
+        </p>
+        <button
+          onClick={() => setSubmitted(false)}
+          className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded"
+        >
+          Submit another
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
       <form
         onSubmit={handleSubmit}
         className="bg-zinc-800 p-6 rounded-lg shadow max-w-sm w-full"
