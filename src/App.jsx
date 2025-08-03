@@ -110,19 +110,6 @@ function App() {
           </button>
         )}
 
-        <button
-          className="mb-4 ml-2 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded font-semibold"
-          onClick={() => {
-            const requests = JSON.parse(
-              localStorage.getItem("karaoke-requests") || "[]"
-            );
-            setQueue([...queue, ...requests]);
-            localStorage.removeItem("karaoke-requests");
-          }}
-        >
-          📥 Load Requests
-        </button>
-
         <DndContext
           sensors={useSensors(useSensor(PointerSensor))}
           collisionDetection={closestCenter}
