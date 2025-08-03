@@ -22,31 +22,41 @@ function RequestForm() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 text-center">
-        <div className="animate-ping-once text-diciccoGreen text-6xl mb-4">
-          ✅
+      <div
+        className="min-h-screen bg-cover bg-center text-white flex flex-col items-center justify-center px-6 text-center relative"
+        style={{ backgroundImage: "url('/italian-lounge-bg.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <div className="relative z-10">
+          <div className="animate-ping-once text-diciccoGreen text-6xl mb-4">
+            ✅
+          </div>
+          <h1 className="text-3xl font-cinzel text-diciccoRed mb-2">Grazie!</h1>
+          <p className="text-zinc-200 mb-6">
+            You’ll be added to the queue shortly.
+          </p>
+          <button
+            onClick={() => setSubmitted(false)}
+            className="bg-diciccoGreen hover:bg-green-700 text-white font-bold px-6 py-2 rounded shadow-lg transition duration-200"
+          >
+            Submit Another
+          </button>
         </div>
-        <h1 className="text-3xl font-cinzel text-diciccoRed mb-2">Grazie!</h1>
-        <p className="text-zinc-300 mb-6">
-          You’ll be added to the queue shortly.
-        </p>
-        <button
-          onClick={() => setSubmitted(false)}
-          className="bg-diciccoGreen hover:bg-green-700 text-white font-bold px-6 py-2 rounded"
-        >
-          Submit Another
-        </button>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black text-white flex justify-center items-center px-4">
+    <div
+      className="min-h-screen bg-cover bg-center text-white flex justify-center items-center px-4 relative"
+      style={{ backgroundImage: "url('/italian-lounge-bg.jpg')" }}
+    >
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
       <form
         onSubmit={handleSubmit}
-        className="bg-zinc-900 border border-diciccoGreen p-6 rounded-lg shadow-lg w-full max-w-md"
+        className="relative z-10 bg-black/50 backdrop-blur-md border border-diciccoGreen p-6 rounded-xl shadow-2xl w-full max-w-md"
       >
-        <h1 className="text-2xl font-cinzel text-diciccoRed text-center mb-6">
+        <h1 className="text-3xl font-cinzel text-diciccoRed text-center mb-6">
           🎤 Karaoke Request
         </h1>
 
@@ -80,7 +90,7 @@ function RequestForm() {
 
         <button
           type="submit"
-          className="w-full bg-diciccoGreen hover:bg-green-700 text-white font-bold py-2 rounded shadow"
+          className="w-full bg-diciccoGreen hover:bg-green-700 text-white font-bold py-2 rounded shadow-lg transition duration-200"
         >
           Submit Request
         </button>
