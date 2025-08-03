@@ -22,29 +22,31 @@ function RequestForm() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 text-center">
-        <div className="animate-ping-once text-green-400 text-7xl mb-4">✅</div>
-        <h1 className="text-3xl font-bold mb-2">Thanks for your request!</h1>
+      <div className="min-h-screen bg-neutral-900 text-white flex flex-col items-center justify-center px-6 text-center">
+        <div className="animate-ping-once text-diciccoGreen text-7xl mb-4">
+          ✅
+        </div>
+        <h1 className="text-3xl font-cinzel text-diciccoRed mb-2">Grazie!</h1>
         <p className="text-lg text-zinc-300 mb-6">
-          You’ll be added to the queue shortly.
+          Your song request has been sent to the DJ.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded"
+          className="bg-diciccoGreen hover:bg-green-700 text-white font-bold px-6 py-2 rounded"
         >
-          Submit another
+          Submit Another
         </button>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div className="min-h-screen bg-neutral-900 text-white flex items-center justify-center px-4">
       <form
         onSubmit={handleSubmit}
-        className="bg-zinc-800 p-6 rounded-lg shadow max-w-sm w-full"
+        className="bg-zinc-800 p-6 rounded-lg shadow max-w-sm w-full border border-diciccoGreen"
       >
-        <h1 className="text-2xl font-bold mb-4 text-green-400 text-center">
+        <h1 className="text-3xl font-cinzel text-diciccoRed mb-4 text-center">
           🎤 Song Request
         </h1>
         <input
@@ -65,7 +67,7 @@ function RequestForm() {
         />
         <button
           type="submit"
-          className="w-full bg-green-500 hover:bg-green-600 p-2 rounded font-bold"
+          className="w-full bg-diciccoGreen hover:bg-green-700 p-2 rounded font-bold text-white shadow"
         >
           Submit ➕
         </button>
