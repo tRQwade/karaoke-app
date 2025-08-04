@@ -54,13 +54,27 @@ function RequestForm() {
         onSubmit={handleSubmit}
         className="relative z-10 w-full max-w-md bg-black/70 backdrop-blur-md border border-diciccoGreen p-8 rounded-xl shadow-2xl"
       >
-        <div className="inline-block bg-white/80 px-6 py-3 rounded-lg shadow mb-6">
-          <h1 className="text-3xl font-cinzel text-center text-red-700">
-            <span className="text-4xl align-middle mr-2">🎤</span>
-            <span className="font-bold">Karaoke</span>{" "}
-            <span className="font-semibold">Request</span>
-          </h1>
-        </div>
+        <h1 className="text-3xl font-cinzel text-center mb-6">
+          <span className="text-4xl align-middle mr-2">🎤</span>
+          <span
+            className="font-bold text-[#FF2C2C]"
+            style={{
+              WebkitTextStroke: "0.3px black",
+              textShadow: "1px 1px 2px rgba(0,0,0,0.75)",
+            }}
+          >
+            Karaoke
+          </span>{" "}
+          <span
+            className="font-semibold text-[#FF2C2C]"
+            style={{
+              WebkitTextStroke: "0.3px black",
+              textShadow: "1px 1px 2px rgba(0,0,0,0.75)",
+            }}
+          >
+            Request
+          </span>
+        </h1>
 
         <div className="mb-4">
           <label className="block text-sm font-semibold mb-1">Your Name</label>
