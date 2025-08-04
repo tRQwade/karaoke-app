@@ -55,25 +55,21 @@ function RequestForm() {
         className="relative z-10 w-full max-w-md bg-black/70 backdrop-blur-md border border-diciccoGreen p-8 rounded-xl shadow-2xl"
       >
         <h1 className="text-3xl font-cinzel text-center mb-6">
-          <span className="text-4xl align-middle mr-2 drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
-            🎤
-          </span>
+          <span className="text-4xl align-middle mr-2">🎤</span>
           <span
-            className="font-bold text-red-500 drop-shadow-[0_2px_2px_rgba(0,0,0,1)]"
+            className="font-bold text-red-600"
             style={{
-              WebkitTextStroke: "1px black",
-              textShadow:
-                "2px 2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, -2px -2px 0 #000",
+              WebkitTextStroke: "0.5px black",
+              textShadow: "1px 1px 2px #000",
             }}
           >
             Karaoke
           </span>{" "}
           <span
-            className="font-semibold text-red-500 drop-shadow-[0_2px_2px_rgba(0,0,0,1)]"
+            className="font-semibold text-red-600"
             style={{
-              WebkitTextStroke: "1px black",
-              textShadow:
-                "2px 2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, -2px -2px 0 #000",
+              WebkitTextStroke: "0.5px black",
+              textShadow: "1px 1px 2px #000",
             }}
           >
             Request
