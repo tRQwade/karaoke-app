@@ -23,8 +23,8 @@ export default function RequestForm() {
       }}
     >
       <div className="w-full max-w-md bg-black/70 p-6 rounded-lg shadow-lg text-white">
-        <h1 className="text-3xl text-center font-cinzel mb-6">
-          <span className="text-4xl mr-2">🎤</span>
+        <h1 className="text-5xl text-center font-cinzel mb-8">
+          <span className="text-7xl mr-3 align-middle">🎤</span>
           <span
             className="font-bold text-red-500"
             style={{
