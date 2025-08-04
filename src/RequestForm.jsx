@@ -54,8 +54,10 @@ function RequestForm() {
         onSubmit={handleSubmit}
         className="relative z-10 w-full max-w-md bg-black/70 backdrop-blur-md border border-diciccoGreen p-8 rounded-xl shadow-2xl"
       >
-        <h1 className="text-3xl font-cinzel text-diciccoRed text-center mb-6">
-          🎤 Karaoke Request
+        <h1 className="text-3xl font-cinzel text-center mb-6">
+          <span className="text-4xl align-middle mr-2">🎤</span>
+          <span className="font-bold text-diciccoGreen">Karaoke</span>{" "}
+          <span className="font-semibold text-diciccoRed">Request</span>
         </h1>
 
         <div className="mb-4">
