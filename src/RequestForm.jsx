@@ -1,114 +1,89 @@
 import { useState } from "react";
 
-function RequestForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [performer, setPerformer] = useState("");
+export default function RequestForm() {
+  const [name, setName] = useState("");
   const [song, setSong] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const entry = { performer, song, id: Date.now() };
-    const pending = JSON.parse(
-      localStorage.getItem("karaoke-requests") || "[]"
-    );
-    pending.push(entry);
-    localStorage.setItem("karaoke-requests", JSON.stringify(pending));
-
-    setSubmitted(true);
-    setPerformer("");
-    setSong("");
+    if (name.trim() && song.trim()) {
+      setSubmitted(true);
+      setName("");
+      setSong("");
+      setTimeout(() => setSubmitted(false), 3000);
+    }
   };
-
-  if (submitted) {
-    return (
-      <div
-        className="min-h-screen bg-cover bg-center text-white flex items-center justify-center px-4 relative"
-        style={{ backgroundImage: "url('/italian-lounge-bg.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-        <div className="relative z-10 text-center p-6 bg-black/60 backdrop-blur-md rounded-xl shadow-xl max-w-md w-full">
-          <div className="text-6xl animate-ping-once text-diciccoGreen mb-4">
-            ✅
-          </div>
-          <h2 className="text-3xl font-cinzel text-diciccoRed mb-2">Grazie!</h2>
-          <p className="text-white mb-6">Your request has been submitted.</p>
-          <button
-            onClick={() => setSubmitted(false)}
-            className="bg-diciccoGreen hover:bg-green-700 text-white font-bold py-2 px-6 rounded shadow transition duration-200"
-          >
-            Submit Another
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center text-white flex items-center justify-center px-4 relative"
-      style={{ backgroundImage: "url('/italian-lounge-bg.jpg')" }}
+      className="min-h-screen bg-cover bg-center flex items-center justify-center p-4"
+      style={{
+        backgroundImage: "url('/italian-lounge-bg.jpg')",
+      }}
     >
-      <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="relative z-10 w-full max-w-md bg-black/70 backdrop-blur-md border border-diciccoGreen p-8 rounded-xl shadow-2xl"
-      >
-        <h1 className="text-3xl font-cinzel text-center mb-6">
-          <span className="text-4xl align-middle mr-2">🎤</span>
+      <div className="w-full max-w-md bg-black/70 p-6 rounded-lg shadow-lg text-white">
+        <h1 className="text-3xl text-center font-cinzel mb-6">
+          <span className="text-4xl mr-2">🎤</span>
           <span
-            className="font-bold text-[#FF2C2C]"
+            className="font-bold text-red-500"
             style={{
-              WebkitTextStroke: "0.3px black",
-              textShadow: "1px 1px 2px rgba(0,0,0,0.75)",
+              WebkitTextStroke: "0.6px black",
+              textShadow: "1px 1px 3px black",
             }}
           >
             Karaoke
           </span>{" "}
           <span
-            className="font-semibold text-[#FF2C2C]"
+            className="font-semibold text-red-500"
             style={{
-              WebkitTextStroke: "0.3px black",
-              textShadow: "1px 1px 2px rgba(0,0,0,0.75)",
+              WebkitTextStroke: "0.6px black",
+              textShadow: "1px 1px 3px black",
             }}
           >
             Request
           </span>
         </h1>
 
-        <div className="mb-4">
-          <label className="block text-sm font-semibold mb-1">Your Name</label>
-          <input
-            type="text"
-            placeholder="e.g. Gianna"
-            value={performer}
-            onChange={(e) => setPerformer(e.target.value)}
-            className="w-full p-2 rounded bg-white text-black"
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Your Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="e.g. Gianna"
+              className="w-full px-3 py-2 rounded bg-white/90 text-black"
+              required
+            />
+          </div>
 
-        <div className="mb-6">
-          <label className="block text-sm font-semibold mb-1">Song Title</label>
-          <input
-            type="text"
-            placeholder="e.g. That's Amore"
-            value={song}
-            onChange={(e) => setSong(e.target.value)}
-            className="w-full p-2 rounded bg-white text-black"
-            required
-          />
-        </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Song Title</label>
+            <input
+              type="text"
+              value={song}
+              onChange={(e) => setSong(e.target.value)}
+              placeholder="e.g. That's Amore"
+              className="w-full px-3 py-2 rounded bg-white/90 text-black"
+              required
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="w-full bg-diciccoGreen hover:bg-green-700 text-white font-bold py-2 rounded shadow-md transition duration-200"
-        >
-          Submit Request
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded font-semibold"
+          >
+            Submit Request
+          </button>
+        </form>
+
+        {submitted && (
+          <p className="mt-4 text-green-300 font-semibold text-center">
+            ✅ Thank you! Your request was received.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
-
-export default RequestForm;
